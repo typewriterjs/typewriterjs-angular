@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --deploy-url \"/rg-animated-typing\"",
+    "build": "ng build --prod --deploy-url \"/rg-animated-typing/\"",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
