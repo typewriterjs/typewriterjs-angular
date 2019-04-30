@@ -1,6 +1,6 @@
-import {EngineEvents} from '../engine.events';
+import {BackspaceEvent, BufferEvent} from '../events/engine.events';
 
-export function BackspaceReducer(source: EngineEvents.BufferEvent, event: EngineEvents.BackspaceEvent): EngineEvents.BufferEvent {
+export function BackspaceReducer(source: BufferEvent, event: BackspaceEvent): BufferEvent {
     const b = {...source};
     b.text[b.row] = b.text[b.row].slice();
     if (b.column > 0) {

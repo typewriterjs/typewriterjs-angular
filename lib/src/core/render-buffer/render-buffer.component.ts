@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from '@angular/core';
-import {EngineEvents} from '../engine/engine.events';
+import {BufferChar, BufferEvent} from '../events/engine.events';
 
 @Component({
     selector: 'rg-render-buffer',
@@ -12,7 +12,7 @@ export class RenderBufferComponent {
     public lines: string[];
 
     @Input()
-    public set buffer(buffer: EngineEvents.BufferEvent) {
+    public set buffer(buffer: BufferEvent) {
         if (!buffer) {
             this.lines = [];
             return;
@@ -20,7 +20,7 @@ export class RenderBufferComponent {
         this.lines = buffer.text.map((t, indx) => this._toHtml(buffer.text[indx].slice(), indx, buffer.row, buffer.column));
     }
 
-    private _toHtml(chars: EngineEvents.BufferChar[], indx: number, row: number, column: number): string {
+    private _toHtml(chars: BufferChar[], indx: number, row: number, column: number): string {
         if (indx === row) {
             chars.splice(column, 0, undefined);
         }

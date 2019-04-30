@@ -1,14 +1,13 @@
 import {isObservable, Observable} from 'rxjs';
-import {first} from 'rxjs/internal/operators/first';
-import {distinctUntilChanged, filter} from 'rxjs/operators';
-import {EngineEvents} from './engine.events';
-import {Keyboard} from './keyboard.operators';
+import {distinctUntilChanged, filter, first} from 'rxjs/operators';
+import {DelayEvent, isSpeedEvent} from '../events/engine.events';
+import {EventsOperator} from './events-operator';
 
-function aggregateSpeed(events: EngineEvents.DelayEvent[], fastForward: boolean): EngineEvents.DelayEvent[] {
+function aggregateSpeed(events: DelayEvent[], fastForward: boolean): DelayEvent[] {
     const DEFAULT_SPEED = 15;
     let speed = DEFAULT_SPEED;
     return events.map(event => {
-        if (EngineEvents.isSpeedEvent(event)) {
+        if (isSpeedEvent(event)) {
             speed = typeof event.value === 'undefined' ? DEFAULT_SPEED : event.value;
             return null;
         }
@@ -20,24 +19,24 @@ function aggregateSpeed(events: EngineEvents.DelayEvent[], fastForward: boolean)
     }).filter(Boolean);
 }
 
-export class EngineAnimation {
-    private constructor(private readonly _events: EngineEvents.DelayEvent[]) {
+export class EventQueue {
+    private constructor(private readonly _events: DelayEvent[]) {
     }
 
-    public static create(): EngineAnimation {
-        return new EngineAnimation([]);
+    public static create(): EventQueue {
+        return new EventQueue([]);
     }
 
-    public append(event: EngineEvents.DelayEvent): EngineAnimation {
-        return new EngineAnimation([...this._events, event]);
+    public append(event: DelayEvent): EventQueue {
+        return new EventQueue([...this._events, event]);
     }
 
-    public pipe(...args: Keyboard.EventsOperator[]): EngineAnimation {
+    public pipe(...args: EventsOperator[]): EventQueue {
         return args.filter(Boolean).reduce((acc, next) => next(acc), this);
     }
 
     public streamUntil(pause$: Observable<boolean>, cancel$: Observable<any>, fastForward: boolean = false)
-        : Observable<EngineEvents.DelayEvent> {
+        : Observable<DelayEvent> {
 
         const events = aggregateSpeed(this._events, fastForward);
 
@@ -76,7 +75,7 @@ export class EngineAnimation {
                 resumeCb();
             });
 
-            function waitFunc(cb: () => void, delay: number | Observable<any>): Function {
+            function waitFunc(cb: () => void, delay: number | Observable<any>) {
                 if (paused) {
                     resumeCb = cb;
                     return Function.prototype;
@@ -91,7 +90,7 @@ export class EngineAnimation {
                 return Function.prototype;
             }
 
-            function next(arr: EngineEvents.DelayEvent[], current: EngineEvents.DelayEvent) {
+            function next(arr: DelayEvent[], current: DelayEvent) {
                 cancelWait = waitFunc(() => {
                     observer.next(current);
                     const event = arr.shift();

@@ -1,9 +1,9 @@
-import {EngineEvents} from '../engine.events';
+import {BufferEvent} from '../events/engine.events';
 
 /**
  * Inserts a character at the current cursor location and moves the cursor forward.
  */
-export function InsertCharReducer(source: EngineEvents.BufferEvent, char: string): EngineEvents.BufferEvent {
+export function InsertCharReducer(source: BufferEvent, char: string): BufferEvent {
     const b = {...source};
     b.text = b.text.slice();
     if (b.text[b.row] === undefined) {

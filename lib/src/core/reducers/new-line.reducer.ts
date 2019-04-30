@@ -1,9 +1,9 @@
-import {EngineEvents} from '../engine.events';
+import {BufferEvent} from '../events/engine.events';
 
 /**
  * Inserts a new line of text in the buffer.
  */
-export function NewLineReducer(source: EngineEvents.BufferEvent): EngineEvents.BufferEvent {
+export function NewLineReducer(source: BufferEvent): BufferEvent {
     const b = {...source};
     b.text = b.text.slice();
     b.column = 0;
