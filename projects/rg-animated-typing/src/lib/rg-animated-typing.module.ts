@@ -1,10 +1,17 @@
-import { NgModule } from '@angular/core';
-import { RgAnimatedTypingComponent } from './rg-animated-typing.component';
+import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
+import {RenderBufferComponent} from './render-buffer/render-buffer.component';
 
 @NgModule({
-  declarations: [RgAnimatedTypingComponent],
-  imports: [
-  ],
-  exports: [RgAnimatedTypingComponent]
+    imports: [
+        CommonModule
+    ],
+    declarations: [
+        RenderBufferComponent
+    ],
+    exports: [
+        RenderBufferComponent
+    ]
 })
-export class RgAnimatedTypingModule { }
+export class RgAnimatedTypingModule {
+}

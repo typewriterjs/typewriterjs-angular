@@ -10,26 +10,32 @@
       "prefix": "rg",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss",
-          "skipTests": true
+          "styleext": "scss",
+          "changeDetection": "OnPush",
+          "flat": false,
+          "spec": false
         },
         "@schematics/angular:class": {
           "skipTests": true
         },
         "@schematics/angular:directive": {
-          "skipTests": true
+          "flat": false,
+          "spec": false
         },
         "@schematics/angular:guard": {
-          "skipTests": true
+          "flat": false,
+          "spec": false
         },
         "@schematics/angular:module": {
           "skipTests": true
         },
         "@schematics/angular:pipe": {
-          "skipTests": true
+          "flat": false,
+          "spec": false
         },
         "@schematics/angular:service": {
-          "skipTests": true
+          "flat": false,
+          "spec": false
         }
       },
       "architect": {
@@ -158,7 +164,7 @@
       "root": "projects/rg-animated-typing",
       "sourceRoot": "projects/rg-animated-typing/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "rg",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
