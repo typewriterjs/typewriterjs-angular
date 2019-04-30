@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "rg-animated-typing": [
+        "dist/rg-animated-typing"
+      ],
+      "rg-animated-typing/*": [
+        "dist/rg-animated-typing/*"
+      ]
+    }
   }
 }
