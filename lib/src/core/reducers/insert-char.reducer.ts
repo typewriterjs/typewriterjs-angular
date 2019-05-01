@@ -1,4 +1,4 @@
-import {BufferEvent} from '../events/engine.events';
+import {BufferEvent} from '../events/buffer.event';
 
 /**
  * Inserts a character at the current cursor location and moves the cursor forward.

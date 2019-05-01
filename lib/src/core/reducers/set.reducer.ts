@@ -1,4 +1,5 @@
-import {BufferEvent, SetEvent} from '../events/engine.events';
+import {BufferEvent} from '../events/buffer.event';
+import {SetEvent} from '../events/set.event';
 import {InsertCharReducer} from './insert-char.reducer';
 import {NewLineReducer} from './new-line.reducer';
 

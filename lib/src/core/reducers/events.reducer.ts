@@ -1,18 +1,14 @@
 import {Observable, OperatorFunction} from 'rxjs';
 import {filter, map, scan, startWith} from 'rxjs/operators';
-import {
-    BufferEvent,
-    DelayEvent,
-    isBackspaceEvent,
-    isBufferEvent,
-    isColorEvent,
-    isCursorEvent,
-    isKeyPressEvent,
-    isPauseEvent,
-    isSetEvent,
-    isTapEvent,
-    TapEvent
-} from '../events/engine.events';
+import {isBackspaceEvent} from '../events/back-space.event';
+import {BufferEvent, isBufferEvent} from '../events/buffer.event';
+import {isColorEvent} from '../events/color.event';
+import {isCursorEvent} from '../events/cursor.event';
+import {DelayEvent} from '../events/delay.event';
+import {isKeyPressEvent} from '../events/key-press.event';
+import {isPauseEvent} from '../events/pause.event';
+import {isSetEvent} from '../events/set.event';
+import {isTapEvent, TapEvent} from '../events/tap.event';
 import {WHITE} from '../operators/colors';
 import {BackspaceReducer} from './backspace.reducer';
 import {ColorReducer} from './color.reducer';
@@ -35,7 +31,7 @@ export function eventsReducer(start?: Partial<BufferEvent>)
                 if (isPauseEvent(event)) {
                     return null;
                 } else if (isTapEvent(event)) {
-                    (<TapEvent> event).callback();
+                    (event as TapEvent).callback();
                     return null;
                 }
                 return event;

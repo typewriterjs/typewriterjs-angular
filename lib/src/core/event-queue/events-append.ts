@@ -1,5 +1,5 @@
+import {DelayEvent} from '../events/delay.event';
 import {EventQueue} from './event-queue';
-import {DelayEvent} from '../events/engine.events';
 import {EventsOperator} from './events-operator';
 
 export function eventsAppend(events: () => DelayEvent[]): EventsOperator {

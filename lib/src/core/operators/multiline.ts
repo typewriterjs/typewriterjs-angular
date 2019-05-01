@@ -7,7 +7,7 @@ import {pause} from './pause';
 import {typeChars} from './type-chars';
 import {prompt} from './prompt';
 
-export function multiline(lines: string[], path: string = '~', pause: number = 500): EventsOperator {
+export function multiline(lines: string[], path: string = '~', pauseValue: number = 500): EventsOperator {
     return (queue: EventQueue): EventQueue => {
         const pipes = [];
         lines.forEach(line => {
@@ -19,7 +19,7 @@ export function multiline(lines: string[], path: string = '~', pause: number = 5
                 color(c),
                 typeChars(line),
                 color(WHITE),
-                pause(pause)
+                pause(pauseValue)
             );
         });
         return queue;

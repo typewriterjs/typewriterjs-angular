@@ -1,12 +1,22 @@
 <div class="card-body">
     <h5 *ngIf="title" class="card-title">{{title}}</h5>
     <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk of the card's content.
-        <rg-render-buffer></rg-render-buffer>
+        <rg-render-buffer [class.block-cursor]="block"
+                          [class.light-cursor]="light"
+                          [buffer]="buffer$ | async"></rg-render-buffer>
     </p>
     <div class="d-flex">
-        <button class="btn btn-primary mr-2">Play</button>
-        <button [disabled]="true" class="btn btn-primary">Restart</button>
-        <button [disabled]="true" class="btn btn-primary ml-auto">Stop</button>
+        <ng-container *ngIf="playing$ | async; else stopped">
+            <ng-container *ngIf="paused$ | async; else notPaused">
+                <button class="btn btn-info mr-2" (click)="resume()">Resume</button>
+            </ng-container>
+            <ng-template #notPaused>
+                <button class="btn btn-info mr-2" (click)="pause()">Pause</button>
+            </ng-template>
+            <button class="btn btn-outline-dark ml-auto" (click)="stop()">Stop</button>
+        </ng-container>
+        <ng-template #stopped>
+            <button class="btn btn-primary mr-2" (click)="play()">Play</button>
+        </ng-template>
     </div>
 </div>

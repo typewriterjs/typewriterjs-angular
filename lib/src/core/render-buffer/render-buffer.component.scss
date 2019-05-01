@@ -1,12 +1,12 @@
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
 rg-render-buffer {
     display: flex;
     flex-direction: column;
-
-    @keyframes blink-animation {
-        to {
-            visibility: hidden;
-        }
-    }
 
     .cursor {
         display: inline-block;
@@ -15,12 +15,36 @@ rg-render-buffer {
         &::after {
             display: block;
             position: absolute;
+            content: ' ';
+            animation: blink-animation 800ms steps(5, start) infinite;
+        }
+    }
+
+    &.block-cursor {
+        .cursor::after {
             top: -0.8rem;
             height: 1.0rem;
             width: 0.5rem;
+        }
+    }
+
+    &:not(block-cursor) {
+        .cursor::after {
+            top: -0.8rem;
+            height: 1.0rem;
+            width: 0.1rem;
+        }
+    }
+
+    &.light-cursor {
+        .cursor::after {
             background-color: rgba(255, 255, 255, 0.6);
-            content: ' ';
-            animation: blink-animation 800ms steps(5, start) infinite;
+        }
+    }
+
+    &:not(.light-cursor) {
+        .cursor::after {
+            background-color: rgba(0, 0, 0, 0.8);
         }
     }
 }

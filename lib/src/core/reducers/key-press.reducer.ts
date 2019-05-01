@@ -1,4 +1,5 @@
-import {BufferEvent, KeyPressEvent} from '../events/engine.events';
+import {BufferEvent} from '../events/buffer.event';
+import {KeyPressEvent} from '../events/key-press.event';
 import {InsertCharReducer} from './insert-char.reducer';
 import {NewLineReducer} from './new-line.reducer';
 
