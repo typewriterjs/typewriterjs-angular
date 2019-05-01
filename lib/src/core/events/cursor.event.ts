@@ -1,7 +1,7 @@
 import {DelayEvent} from './delay.event';
 
 export interface CursorEvent extends DelayEvent {
-    direction: 'left' | 'right' | 'home' | 'end';
+    direction: 'left' | 'right' | 'up' | 'down' | 'home' | 'end';
     type: 'cursor';
 }
 

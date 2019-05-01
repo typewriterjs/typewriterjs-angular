@@ -1,10 +1,10 @@
 import {BufferEvent} from '../events/buffer.event';
 import {SetEvent} from '../events/set.event';
-import {InsertCharReducer} from './insert-char.reducer';
-import {NewLineReducer} from './new-line.reducer';
+import {insertCharReducer} from './insert-char.reducer';
+import {newLineReducer} from './new-line.reducer';
 
-export function SetReducer(source: BufferEvent, event: SetEvent): BufferEvent {
+export function setReducer(source: BufferEvent, event: SetEvent): BufferEvent {
     return event.value.split('').reduce((acc, next) => {
-        return next === '\r' ? NewLineReducer(acc) : InsertCharReducer(acc, next);
+        return next === '\r' ? newLineReducer(acc) : insertCharReducer(acc, next);
     }, source);
 }

@@ -18,10 +18,10 @@ import {typeChars} from '../../../lib/src/core/operators/type-chars';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExampleSimpleComponent implements OnInit {
-    public simpleExample: EventQueue;
+    public queue: EventQueue;
 
     public ngOnInit(): void {
-        this.simpleExample = EventQueue.create().pipe(
+        this.queue = EventQueue.create().pipe(
             speed(25),
             typeChars('Hello,'),
             pause(1000),

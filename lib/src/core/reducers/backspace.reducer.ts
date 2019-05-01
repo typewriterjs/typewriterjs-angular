@@ -1,8 +1,8 @@
 import {BackspaceEvent} from '../events/back-space.event';
 import {BufferEvent} from '../events/buffer.event';
 
-export function BackspaceReducer(source: BufferEvent, event: BackspaceEvent): BufferEvent {
-    const b = {...source};
+export function backspaceReducer(source: BufferEvent, event: BackspaceEvent): BufferEvent {
+    const b = {...source, text: source.text.slice()};
     b.text[b.row] = b.text[b.row].slice();
     if (b.column > 0) {
         b.text[b.row].splice(b.column - 1, 1);

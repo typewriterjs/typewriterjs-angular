@@ -5,6 +5,7 @@ import {DemoComponent} from './demo/demo.component';
 import {PlayerComponent} from './player/player.component';
 import { ExampleSimpleComponent } from './example-simple/example-simple.component';
 import { ExampleAsyncComponent } from './example-async/example-async.component';
+import { ExampleInsertComponent } from './example-insert/example-insert.component';
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import { ExampleAsyncComponent } from './example-async/example-async.component';
         DemoComponent,
         PlayerComponent,
         ExampleSimpleComponent,
-        ExampleAsyncComponent
+        ExampleAsyncComponent,
+        ExampleInsertComponent
     ],
     providers: [],
     bootstrap: [DemoComponent]

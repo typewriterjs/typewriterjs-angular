@@ -14,9 +14,9 @@ import {typeChars} from '../../../lib/src/core/operators/type-chars';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExampleAsyncComponent implements OnInit, OnDestroy {
-    public asyncBuffer$: Observable<BufferEvent>;
+    public buffer$: Observable<BufferEvent>;
 
-    public asyncExample: EventQueue;
+    public queue: EventQueue;
 
     private readonly _continue$: Subject<void> = new Subject();
 
@@ -32,9 +32,9 @@ export class ExampleAsyncComponent implements OnInit, OnDestroy {
     }
 
     public ngOnInit() {
-        this.asyncExample = EventQueue.create().pipe(
+        this.queue = EventQueue.create().pipe(
             speed(25),
-            tapEvents(() => this.asyncBuffer$ = undefined),
+            tapEvents(() => this.buffer$ = undefined),
             typeChars('Hello, I can start another animation and wait for it to finish.'),
             pressNewLine(), pause(500),
             tapEvents(() => this._startChild()),
@@ -44,7 +44,7 @@ export class ExampleAsyncComponent implements OnInit, OnDestroy {
     }
 
     private _startChild() {
-        this.asyncBuffer$ = EventQueue.create().pipe(
+        this.buffer$ = EventQueue.create().pipe(
             speed(25),
             typeChars('Hello, I am a child animation.'),
             pause(1000), pressNewLine(),

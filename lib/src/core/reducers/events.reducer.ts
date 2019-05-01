@@ -5,16 +5,20 @@ import {BufferEvent, isBufferEvent} from '../events/buffer.event';
 import {isColorEvent} from '../events/color.event';
 import {isCursorEvent} from '../events/cursor.event';
 import {DelayEvent} from '../events/delay.event';
+import {isDeleteLineEvent} from '../events/delete-line.event';
+import {isDeleteEvent} from '../events/delete.event';
 import {isKeyPressEvent} from '../events/key-press.event';
 import {isPauseEvent} from '../events/pause.event';
 import {isSetEvent} from '../events/set.event';
 import {isTapEvent, TapEvent} from '../events/tap.event';
 import {WHITE} from '../operators/colors';
-import {BackspaceReducer} from './backspace.reducer';
-import {ColorReducer} from './color.reducer';
-import {CursorMoveReducer} from './cursor-move.reducer';
-import {KeyPressReducer} from './key-press.reducer';
-import {SetReducer} from './set.reducer';
+import {backspaceReducer} from './backspace.reducer';
+import {colorReducer} from './color.reducer';
+import {cursorReducer} from './cursor.reducer';
+import {deleteLineReducer} from './delete-line.reducer';
+import {deleteReducer} from './delete.reducer';
+import {keyPressReducer} from './key-press.reducer';
+import {setReducer} from './set.reducer';
 
 /**
  * Appends a stream of keyboard events to the end of a buffer stream.
@@ -42,15 +46,19 @@ export function eventsReducer(start?: Partial<BufferEvent>)
                 if (isBufferEvent(event)) {
                     return event;
                 } else if (isKeyPressEvent(event)) {
-                    return KeyPressReducer(buffer, event);
+                    return keyPressReducer(buffer, event);
                 } else if (isCursorEvent(event)) {
-                    return CursorMoveReducer(buffer, event);
+                    return cursorReducer(buffer, event);
                 } else if (isBackspaceEvent(event)) {
-                    return BackspaceReducer(buffer, event);
+                    return backspaceReducer(buffer, event);
+                } else if (isDeleteEvent(event)) {
+                    return deleteReducer(buffer, event);
+                } else if (isDeleteLineEvent(event)) {
+                    return deleteLineReducer(buffer, event);
                 } else if (isSetEvent(event)) {
-                    return SetReducer(buffer, event);
+                    return setReducer(buffer, event);
                 } else if (isColorEvent(event)) {
-                    return ColorReducer(buffer, event);
+                    return colorReducer(buffer, event);
                 }
                 throw new Error('unexpected value in buffer stream');
             })

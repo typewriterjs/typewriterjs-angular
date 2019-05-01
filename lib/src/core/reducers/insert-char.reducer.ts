@@ -3,7 +3,7 @@ import {BufferEvent} from '../events/buffer.event';
 /**
  * Inserts a character at the current cursor location and moves the cursor forward.
  */
-export function InsertCharReducer(source: BufferEvent, char: string): BufferEvent {
+export function insertCharReducer(source: BufferEvent, char: string): BufferEvent {
     const b = {...source};
     b.text = b.text.slice();
     if (b.text[b.row] === undefined) {
