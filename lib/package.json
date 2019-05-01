@@ -1,6 +1,18 @@
 {
     "name": "rg-animated-typing",
-    "version": "0.0.1",
+    "description": "Angular components for animating the display of text being typed on the screen.",
+    "version": "0.0.2",
+    "author": "Reactgular.com",
+    "homepage": "https://reactgular.github.io/rg-animated-typing/",
+    "license": "MIT",
+    "keywords": [
+        "angular",
+        "animation"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/reactgular/rg-animated-typing"
+    },
     "peerDependencies": {
         "@angular/common": "^7.2.0",
         "@angular/core": "^7.2.0"
