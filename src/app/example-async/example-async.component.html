@@ -1,0 +1,10 @@
+<h3>Synchronizing</h3>
+<p>
+    The animation can be synchronized with other events. You can pause an animation using any kind of observable event.
+    In this next example, the animation on the left will trigger the animation on the right, wait for it to finish
+    and then continue.
+</p>
+<div class="d-flex w-100">
+    <rg-player class="thin-cursor w-50 mr-3 mb-5" [queue]="asyncExample"></rg-player>
+    <rg-render-buffer [buffer]="asyncBuffer$ | async"></rg-render-buffer>
+</div>
