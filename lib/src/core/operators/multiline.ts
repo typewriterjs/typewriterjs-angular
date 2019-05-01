@@ -1,5 +1,4 @@
-import {EventQueue} from '../event-queue/event-queue';
-import {EventsOperator} from '../event-queue/events-operator';
+import {EventQueue, EventsOperator} from '../event-queue';
 import {pause} from './pause';
 import {pressNewLine} from './press-new-line';
 import {typeChars} from './type-chars';

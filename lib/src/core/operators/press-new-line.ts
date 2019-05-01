@@ -1,4 +1,4 @@
-import {EventsOperator} from '../event-queue/events-operator';
+import {EventsOperator} from '../event-queue';
 import {typeChars} from './type-chars';
 
 /**

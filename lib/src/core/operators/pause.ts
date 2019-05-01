@@ -1,6 +1,6 @@
 import {Observable} from 'rxjs';
-import {eventsAppend} from '../event-queue/events-append';
-import {EventsOperator} from '../event-queue/events-operator';
+import {eventsAppend} from '../../internal/events/events-append';
+import {EventsOperator} from '../event-queue';
 
 /**
  * Adds a delay to the buffer stream.

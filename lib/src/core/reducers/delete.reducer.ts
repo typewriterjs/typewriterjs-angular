@@ -1,6 +1,5 @@
-import {BufferEvent} from '../events/buffer.event';
-import {DeleteEvent} from '../events/delete.event';
-import {isEndOfFile, isEndOfLine} from '../utils/buffer-utils';
+import {isEndOfFile, isEndOfLine} from '../../internal/utils/buffer-utils';
+import {BufferEvent, DeleteEvent} from '../events';
 
 export function deleteReducer(source: BufferEvent, event: DeleteEvent): BufferEvent {
     if (isEndOfFile(source)) {

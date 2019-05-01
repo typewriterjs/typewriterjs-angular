@@ -1,5 +1,5 @@
-import {eventsAppend} from '../event-queue/events-append';
-import {EventsOperator} from '../event-queue/events-operator';
+import {eventsAppend} from '../../internal/events/events-append';
+import {EventsOperator} from '../event-queue';
 
 /**
  * Moves the cursor up one row.

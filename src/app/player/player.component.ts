@@ -1,8 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {BufferEvent} from 'rg-animated-typing/core/events/buffer.event';
+import {BufferEvent, EventQueue} from 'rg-animated-typing';
 import {BehaviorSubject, merge, Observable, Subject} from 'rxjs';
 import {finalize} from 'rxjs/operators';
-import {EventQueue} from '../../../lib/src/core/event-queue/event-queue';
 
 @Component({
     selector: 'rg-player',

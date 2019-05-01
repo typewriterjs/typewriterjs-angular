@@ -1,4 +1,4 @@
-import {BufferEvent} from '../events/buffer.event';
+import {BufferEvent} from '../../core/events';
 
 export function isFirstRow(b: BufferEvent): boolean {
     return b.row === 0;

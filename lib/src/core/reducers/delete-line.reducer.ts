@@ -1,5 +1,4 @@
-import {BufferEvent} from '../events/buffer.event';
-import {DeleteLineEvent} from '../events/delete-line.event';
+import {BufferEvent, DeleteLineEvent} from '../events';
 
 export function deleteLineReducer(source: BufferEvent, event: DeleteLineEvent): BufferEvent {
     const b = {...source, text: source.text.slice()};

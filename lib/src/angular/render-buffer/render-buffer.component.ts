@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from '@angular/core';
-import {BufferChar, BufferEvent} from '../events/buffer.event';
+import {BufferChar, BufferEvent} from '../../core/events';
 
 @Component({
     selector: 'rg-render-buffer',

@@ -1,4 +1,4 @@
-import {BufferEvent} from '../events/buffer.event';
+import {BufferEvent} from '../events';
 
 /**
  * Does not mutate the source.

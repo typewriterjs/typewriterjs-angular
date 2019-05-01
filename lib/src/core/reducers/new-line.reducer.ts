@@ -1,4 +1,4 @@
-import {BufferEvent} from '../events/buffer.event';
+import {BufferEvent} from '../events';
 
 /**
  * Inserts a new line of text in the buffer.

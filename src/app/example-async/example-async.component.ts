@@ -1,12 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import {BufferEvent} from 'rg-animated-typing/core/events/buffer.event';
+import {BufferEvent, EventQueue, pause, pressNewLine, speed, tapEvents, typeChars} from 'rg-animated-typing';
 import {Observable, Subject} from 'rxjs';
-import {EventQueue} from '../../../lib/src/core/event-queue/event-queue';
-import {pause} from '../../../lib/src/core/operators/pause';
-import {pressNewLine} from '../../../lib/src/core/operators/press-new-line';
-import {speed} from '../../../lib/src/core/operators/speed';
-import {tapEvents} from '../../../lib/src/core/operators/tap-events';
-import {typeChars} from '../../../lib/src/core/operators/type-chars';
 
 @Component({
     selector: 'rg-example-async',

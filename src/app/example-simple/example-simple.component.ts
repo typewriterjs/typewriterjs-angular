@@ -1,14 +1,17 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {EventQueue} from '../../../lib/src/core/event-queue/event-queue';
-import {color} from '../../../lib/src/core/operators/color';
-import {GREEN, WHITE} from '../../../lib/src/core/operators/colors';
-import {pause} from '../../../lib/src/core/operators/pause';
-import {pressBackSpace} from '../../../lib/src/core/operators/press-back-space';
-import {pressEnd} from '../../../lib/src/core/operators/press-end';
-import {pressLeft} from '../../../lib/src/core/operators/press-left';
-import {pressNewLine} from '../../../lib/src/core/operators/press-new-line';
-import {speed} from '../../../lib/src/core/operators/speed';
-import {typeChars} from '../../../lib/src/core/operators/type-chars';
+import {
+    color,
+    EventQueue,
+    GREEN,
+    pause,
+    pressBackSpace,
+    pressEnd,
+    pressLeft,
+    pressNewLine,
+    speed,
+    typeChars,
+    WHITE
+} from 'rg-animated-typing';
 
 @Component({
     selector: 'rg-example-simple',

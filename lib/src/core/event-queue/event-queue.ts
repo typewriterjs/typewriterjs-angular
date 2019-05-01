@@ -1,9 +1,8 @@
 import {isObservable, Observable, of} from 'rxjs';
 import {distinctUntilChanged, filter, first} from 'rxjs/operators';
-import {BufferEvent} from '../events/buffer.event';
-import {DelayEvent} from '../events/delay.event';
-import {eventsReducer} from '../reducers/events.reducer';
-import {aggregateSpeed} from './aggregate-speed';
+import {aggregateSpeed} from '../../internal/events/aggregate-speed';
+import {BufferEvent, DelayEvent} from '../events';
+import {eventsReducer} from '../reducers';
 import {EventsOperator} from './events-operator';
 
 export class EventQueue {

@@ -1,6 +1,5 @@
-import {BufferEvent} from '../events/buffer.event';
-import {CursorEvent} from '../events/cursor.event';
-import {isEndOfFile, isEndOfLine, isFirstRow, isLastRow, isOutOfRange, isStartOfLine} from '../utils/buffer-utils';
+import {isEndOfFile, isEndOfLine, isFirstRow, isLastRow, isOutOfRange, isStartOfLine} from '../../internal/utils/buffer-utils';
+import {BufferEvent, CursorEvent} from '../events';
 
 export function homeReducer(b: BufferEvent): BufferEvent {
     return isStartOfLine(b) ? b : {...b, column: 0};

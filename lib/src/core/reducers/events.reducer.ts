@@ -1,17 +1,21 @@
 import {Observable, OperatorFunction} from 'rxjs';
 import {filter, map, scan, startWith} from 'rxjs/operators';
-import {isBackspaceEvent} from '../events/back-space.event';
-import {BufferEvent, isBufferEvent} from '../events/buffer.event';
-import {isColorEvent} from '../events/color.event';
-import {isCursorEvent} from '../events/cursor.event';
-import {DelayEvent} from '../events/delay.event';
-import {isDeleteLineEvent} from '../events/delete-line.event';
-import {isDeleteEvent} from '../events/delete.event';
-import {isKeyPressEvent} from '../events/key-press.event';
-import {isPauseEvent} from '../events/pause.event';
-import {isSetEvent} from '../events/set.event';
-import {isTapEvent, TapEvent} from '../events/tap.event';
-import {WHITE} from '../operators/colors';
+import {
+    BufferEvent,
+    DelayEvent,
+    isBackspaceEvent,
+    isBufferEvent,
+    isColorEvent,
+    isCursorEvent,
+    isDeleteEvent,
+    isDeleteLineEvent,
+    isKeyPressEvent,
+    isPauseEvent,
+    isSetEvent,
+    isTapEvent,
+    TapEvent
+} from '../events';
+import {WHITE} from '../operators';
 import {backspaceReducer} from './backspace.reducer';
 import {colorReducer} from './color.reducer';
 import {cursorReducer} from './cursor.reducer';

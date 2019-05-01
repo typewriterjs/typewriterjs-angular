@@ -1,7 +1,6 @@
-import {EventQueue} from '../event-queue/event-queue';
-import {BLUE, GREEN, WHITE} from './colors';
-import {EventsOperator} from '../event-queue/events-operator';
+import {EventQueue, EventsOperator} from '../event-queue';
 import {color} from './color';
+import {BLUE, GREEN, WHITE} from './colors';
 import {setChars} from './set-chars';
 
 export function prompt(domain: string, path: string): EventsOperator {

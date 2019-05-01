@@ -1,5 +1,4 @@
-import {DelayEvent} from '../events/delay.event';
-import {isSpeedEvent} from '../events/speed.event';
+import {DelayEvent, isSpeedEvent} from '../../core/events';
 
 export function aggregateSpeed(events: DelayEvent[], fastForward: boolean): DelayEvent[] {
     const DEFAULT_SPEED = 15;

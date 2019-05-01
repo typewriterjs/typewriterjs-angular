@@ -1,5 +1,4 @@
-import {BackspaceEvent} from '../events/back-space.event';
-import {BufferEvent} from '../events/buffer.event';
+import {BackspaceEvent, BufferEvent} from '../events';
 
 export function backspaceReducer(source: BufferEvent, event: BackspaceEvent): BufferEvent {
     const b = {...source, text: source.text.slice()};

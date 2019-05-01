@@ -1,4 +1,4 @@
-import {eventsAppend} from '../event-queue/events-append';
+import {eventsAppend} from '../../internal/events/events-append';
 
 /**
  * Triggers the callback when the stream is played
