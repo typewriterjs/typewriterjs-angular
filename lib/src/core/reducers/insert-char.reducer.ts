@@ -10,7 +10,7 @@ export function insertCharReducer(source: BufferEvent, char: string): BufferEven
         b.text[b.row] = [];
     }
     b.text[b.row] = b.text[b.row].slice();
-    b.text[b.row].splice(b.column, 0, {char, color: b.color});
+    b.text[b.row].splice(b.column, 0, {char, css: b.css});
     b.column++;
     return b;
 }

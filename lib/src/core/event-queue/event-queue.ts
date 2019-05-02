@@ -1,4 +1,4 @@
-import {isObservable, Observable, of} from 'rxjs';
+import {isObservable, Observable, of, Subscription} from 'rxjs';
 import {distinctUntilChanged, filter, first} from 'rxjs/operators';
 import {aggregateSpeed} from '../../internal/events/aggregate-speed';
 import {BufferEvent, DelayEvent} from '../events';
@@ -28,34 +28,34 @@ export class EventQueue {
             let paused = false;
             let resumeCb = Function.prototype;
 
-            function done() {
+            function done(subs: Subscription) {
                 observer.complete();
-                cancelSubscribe.unsubscribe();
-                pausedSubscribe.unsubscribe();
-                resumeSubscribe.unsubscribe();
+                subs.unsubscribe();
             }
 
-            const cancelSubscribe = cancel$.pipe(first()).subscribe(() => {
-                cancelled = true;
-                cancelWait();
-                done();
-            });
+            const subscriptions = new Subscription();
 
-            const pausedSubscribe = pause$.pipe(
+            subscriptions.add(pause$.pipe(
                 distinctUntilChanged(),
                 filter(value => Boolean(value))
             ).subscribe(() => {
                 paused = true;
                 resumeCb = Function.prototype;
-            });
+            }));
 
-            const resumeSubscribe = pause$.pipe(
+            subscriptions.add(pause$.pipe(
                 distinctUntilChanged(),
                 filter(value => Boolean(value) === false)
             ).subscribe(() => {
                 paused = false;
                 resumeCb();
-            });
+            }));
+
+            subscriptions.add(cancel$.pipe(first()).subscribe(() => {
+                cancelled = true;
+                cancelWait();
+                done(subscriptions);
+            }));
 
             function waitFunc(cb: () => void, delay: number | Observable<any>) {
                 if (paused) {
@@ -79,7 +79,7 @@ export class EventQueue {
                     if (event && !cancelled) {
                         next(arr, event);
                     } else {
-                        done();
+                        done(subscriptions);
                     }
                 }, current.delay);
             }
@@ -88,7 +88,7 @@ export class EventQueue {
                 const event = events.shift();
                 next(events, event);
             } else {
-                done();
+                done(subscriptions);
             }
         });
     }

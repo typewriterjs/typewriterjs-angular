@@ -1,6 +1,5 @@
 export * from './back-space.event';
 export * from './buffer.event';
-export * from './color.event';
 export * from './cursor.event';
 export * from './delay.event';
 export * from './delete.event';

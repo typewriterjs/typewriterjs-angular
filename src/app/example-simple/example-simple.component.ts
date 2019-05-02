@@ -1,17 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {
-    color,
-    EventQueue,
-    GREEN,
-    pause,
-    pressBackSpace,
-    pressEnd,
-    pressLeft,
-    pressNewLine,
-    speed,
-    typeChars,
-    WHITE
-} from 'rg-animated-typing';
+import {EventQueue, pause, pressBackSpace, pressEnd, pressLeft, pressNewLine, speed, typeChars} from 'rg-animated-typing';
 
 @Component({
     selector: 'rg-example-simple',
@@ -41,7 +29,7 @@ export class ExampleSimpleComponent implements OnInit {
             pause(1000),
             speed(25),
             pressNewLine(), pause(500),
-            typeChars('The '), color(GREEN), typeChars('style'), color(WHITE), typeChars(' of the text can also be changed.'),
+            typeChars('The {{green}}style{{}} of the text can also be changed.'),
             pressNewLine(), pause(500),
             typeChars('The cursor can move and make changes to previous text.'),
             pause(500),

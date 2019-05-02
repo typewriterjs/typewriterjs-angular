@@ -5,7 +5,6 @@ import {
     DelayEvent,
     isBackspaceEvent,
     isBufferEvent,
-    isColorEvent,
     isCursorEvent,
     isDeleteEvent,
     isDeleteLineEvent,
@@ -15,9 +14,9 @@ import {
     isTapEvent,
     TapEvent
 } from '../events';
-import {WHITE} from '../operators';
+import {isCssClassEvent} from '../events/css-class.event';
 import {backspaceReducer} from './backspace.reducer';
-import {colorReducer} from './color.reducer';
+import {cssClassReducer} from './css-class.reducer';
 import {cursorReducer} from './cursor.reducer';
 import {deleteLineReducer} from './delete-line.reducer';
 import {deleteReducer} from './delete.reducer';
@@ -30,8 +29,8 @@ import {setReducer} from './set.reducer';
 export function eventsReducer(start?: Partial<BufferEvent>)
     : OperatorFunction<BufferEvent, BufferEvent> {
 
-    const _default = {type: 'buffer', color: WHITE, column: 0, row: 0, text: []};
-    const first = Object.assign(_default, start || {});
+    const _default: BufferEvent = {type: 'buffer', css: '', column: 0, row: 0, text: []};
+    const first: BufferEvent = Object.assign(_default, start || {});
 
     return (source: Observable<DelayEvent>): Observable<BufferEvent> => {
         return source.pipe(
@@ -61,8 +60,8 @@ export function eventsReducer(start?: Partial<BufferEvent>)
                     return deleteLineReducer(buffer, event);
                 } else if (isSetEvent(event)) {
                     return setReducer(buffer, event);
-                } else if (isColorEvent(event)) {
-                    return colorReducer(buffer, event);
+                } else if (isCssClassEvent(event)) {
+                    return cssClassReducer(buffer, event);
                 }
                 throw new Error('unexpected value in buffer stream');
             })

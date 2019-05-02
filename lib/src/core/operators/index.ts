@@ -1,5 +1,4 @@
-export * from './color';
-export * from './colors';
+export * from './css-class';
 export * from './multiline';
 export * from './pause';
 export * from './press-back-space';
@@ -12,7 +11,6 @@ export * from './press-left';
 export * from './press-new-line';
 export * from './press-right';
 export * from './press-up';
-export * from './prompt';
 export * from './set-chars';
 export * from './speed';
 export * from './tap-events';

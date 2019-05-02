@@ -2,12 +2,12 @@ import {EventType} from './event.type';
 
 export interface BufferChar {
     char: string;
-    color: number;
+    css: string;
 }
 
 export interface BufferEvent extends EventType {
-    color: number;
     column: number;
+    css: string;
     row: number;
     text: BufferChar[][];
     type: 'buffer';

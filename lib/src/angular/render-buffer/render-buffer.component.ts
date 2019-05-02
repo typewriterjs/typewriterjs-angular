@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from '@angular/core';
-import {BufferChar, BufferEvent} from '../../core/events';
+import {BufferEvent} from '../../core/events';
+import {bufferToHtml} from '../../core/utils';
 
 @Component({
     selector: 'rg-render-buffer',
@@ -13,37 +14,6 @@ export class RenderBufferComponent {
 
     @Input()
     public set buffer(buffer: BufferEvent) {
-        if (!buffer) {
-            this.lines = [];
-            return;
-        }
-        this.lines = buffer.text.map((t, indx) => this._toHtml(buffer.text[indx].slice(), indx, buffer.row, buffer.column));
-    }
-
-    private _toHtml(chars: BufferChar[], indx: number, row: number, column: number): string {
-        if (indx === row) {
-            chars.splice(column, 0, undefined);
-        }
-        let color = null;
-        let html = chars.map(char => {
-            let str = '';
-            if (char) {
-                if (color !== char.color) {
-                    if (color !== null) {
-                        str += '</span>';
-                    }
-                    str += `<span class="c${char.color}">`;
-                }
-                color = char.color;
-                str += char.char;
-            } else {
-                str += '<span class="cursor"></span>';
-            }
-            return str;
-        }).join('');
-        if (html !== '') {
-            html += '</span>';
-        }
-        return html === '' ? '&nbsp;' : html;
+        this.lines = bufferToHtml(buffer);
     }
 }
