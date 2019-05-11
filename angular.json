@@ -132,7 +132,7 @@
         }
       }
     },
-    "rg-animated-typing": {
+    "typewriterjs-angular": {
       "root": "lib/",
       "sourceRoot": "lib/src",
       "projectType": "library",
