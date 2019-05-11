@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {BufferEvent, EventQueue} from 'rg-animated-typing';
+import {BufferEvent, EventQueue} from '@typewriterjs/typewriterjs';
 import {BehaviorSubject, merge, Observable, Subject} from 'rxjs';
 import {finalize} from 'rxjs/operators';
 

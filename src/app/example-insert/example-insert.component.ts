@@ -2,15 +2,19 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {
     EventQueue,
     multiline,
-    pressBackSpace, pressDelete, pressDeleteLine,
+    pressBackSpace,
+    pressDelete,
+    pressDeleteLine,
     pressDown,
-    pressEnd, pressHome,
+    pressEnd,
+    pressHome,
     pressLeft,
-    pressNewLine, pressRight,
+    pressNewLine,
+    pressRight,
     pressUp,
     speed,
     typeChars
-} from 'rg-animated-typing';
+} from '@typewriterjs/typewriterjs';
 
 @Component({
     selector: 'rg-example-insert',

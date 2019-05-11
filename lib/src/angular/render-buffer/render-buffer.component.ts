@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from '@angular/core';
-import {BufferEvent} from '../../core/events';
-import {bufferToHtml} from '../../core/utils';
+import {BufferEvent, bufferToHtml} from '@typewriterjs/typewriterjs';
 
 @Component({
     selector: 'rg-render-buffer',

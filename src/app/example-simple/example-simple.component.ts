@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {EventQueue, pause, pressBackSpace, pressEnd, pressLeft, pressNewLine, speed, typeChars} from 'rg-animated-typing';
+import {EventQueue, pause, pressBackSpace, pressEnd, pressLeft, pressNewLine, speed, typeChars} from '@typewriterjs/typewriterjs';
 
 @Component({
     selector: 'rg-example-simple',
