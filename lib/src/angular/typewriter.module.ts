@@ -13,5 +13,5 @@ import {RenderBufferComponent} from './render-buffer/render-buffer.component';
         RenderBufferComponent
     ]
 })
-export class RgAnimatedTypingModule {
+export class TypewriterModule {
 }
