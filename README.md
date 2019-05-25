@@ -1,27 +1,45 @@
-# RgAnimatedTypings
+[![Build Status](https://travis-ci.org/typewriterjs/typewriterjs-angular.svg?branch=master)](https://travis-ci.org/typewriterjs/typewriterjs-angular)
+[![Coverage Status](https://coveralls.io/repos/github/typewriterjs/typewriterjs-angular/badge.svg?branch=master)](https://coveralls.io/github/typewriterjs/typewriterjs-angular?branch=master)
+[![npm version](https://badge.fury.io/js/%40typewriterjs%2Ftypewriterjs-angular.svg)](https://badge.fury.io/js/%40typewriterjs%2Ftypewriterjs-angular)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+# TypewriterJs Angular
 
-## Development server
+Angular component library for animating the drawing of text so that it appears to be typed by a person.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Demo
 
-## Code scaffolding
+Please check out samples of the features by visiting [typewriterjs.github.io/typewriterjs-angular](https://typewriterjs.github.io/typewriterjs-angular/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Dependencies
 
-## Build
+This project implements the Angular components for using the [TypewriterJS](https://github.com/typewriterjs/typewriterjs) library, and requires that the library be
+installed along side this library. 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+# Installation
 
-## Running unit tests
+You need to have an Angular project with the supported Angular version. This project was last updated to work with Angular 7.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To install the library
 
-## Running end-to-end tests
+```
+npm install --save @typewriterjs/typewriterjs @typewriterjs/typewriterjs-angular
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Once installed you need to import the main module.
 
-## Further help
+```
+import {TypewriterModule} from '@typewriterjs/typewriterjs-angular';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@NgModule({
+    ...
+    imports: [TypewriterModule, ...],
+    ...
+})
+export class YourAppModule {
+}
+```
+
+# Getting help
+
+You are welcome to open issues for general support questions as well as bug reports and feature requests.
+

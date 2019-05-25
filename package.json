@@ -1,6 +1,14 @@
 {
     "name": "@typewriterjs/typewriterjs-angular",
-    "version": "0.0.0",
+    "version": "1.0.0-alpha.1",
+    "description": "Angular components for animating the display of text being typed on the screen.",
+    "author": "reactgular.com",
+    "homepage": "https://typewriterjs.com/",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/typewriterjs/typewriterjs-angular"
+    },
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
@@ -10,25 +18,25 @@
         "e2e": "ng e2e"
     },
     "dependencies": {
-        "@angular/animations": "~7.2.0",
-        "@angular/common": "~7.2.0",
-        "@angular/compiler": "~7.2.0",
-        "@angular/core": "~7.2.0",
-        "@angular/forms": "~7.2.0",
-        "@angular/platform-browser": "~7.2.0",
-        "@angular/platform-browser-dynamic": "~7.2.0",
-        "@angular/router": "~7.2.0",
+        "@angular/animations": "~7.2.15",
+        "@angular/common": "~7.2.15",
+        "@angular/compiler": "~7.2.15",
+        "@angular/core": "~7.2.15",
+        "@angular/forms": "~7.2.15",
+        "@angular/platform-browser": "~7.2.15",
+        "@angular/platform-browser-dynamic": "~7.2.15",
+        "@angular/router": "~7.2.15",
         "core-js": "^2.5.4",
-        "rxjs": "~6.5.1",
+        "rxjs": "~6.5.2",
         "tslib": "^1.9.0",
         "zone.js": "~0.8.26"
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "~0.13.0",
         "@angular-devkit/build-ng-packagr": "~0.13.0",
-        "@angular/cli": "~7.3.8",
-        "@angular/compiler-cli": "~7.2.0",
-        "@angular/language-service": "~7.2.0",
+        "@angular/cli": "~7.3.9",
+        "@angular/compiler-cli": "~7.2.15",
+        "@angular/language-service": "~7.2.15",
         "@types/jasmine": "~2.8.8",
         "@types/jasminewd2": "~2.0.3",
         "@types/node": "~8.9.4",

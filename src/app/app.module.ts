@@ -1,8 +1,9 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {RgAnimatedTypingModule} from '@typewriterjs/typewriterjs-angular';
+import {TypewriterModule} from '@typewriterjs/typewriterjs-angular';
 import {DemoComponent} from './demo/demo.component';
 import {ExampleAsyncComponent} from './example-async/example-async.component';
+import {ExampleHtmlComponent} from './example-html/example-html.component';
 import {ExampleInsertComponent} from './example-insert/example-insert.component';
 import {ExampleSimpleComponent} from './example-simple/example-simple.component';
 import {PlayerComponent} from './player/player.component';
@@ -10,14 +11,15 @@ import {PlayerComponent} from './player/player.component';
 @NgModule({
     imports: [
         BrowserModule,
-        RgAnimatedTypingModule
+        TypewriterModule
     ],
     declarations: [
         DemoComponent,
-        PlayerComponent,
-        ExampleSimpleComponent,
         ExampleAsyncComponent,
-        ExampleInsertComponent
+        ExampleHtmlComponent,
+        ExampleInsertComponent,
+        ExampleSimpleComponent,
+        PlayerComponent
     ],
     providers: [],
     bootstrap: [DemoComponent]
