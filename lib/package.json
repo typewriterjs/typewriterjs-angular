@@ -1,6 +1,6 @@
 {
     "name": "@typewriterjs/typewriterjs-angular",
-    "version": "1.0.0-alpha.1",
+    "version": "1.0.0-alpha.2",
     "description": "Angular components for animating the display of text being typed on the screen.",
     "author": "reactgular.com",
     "homepage": "https://typewriterjs.com/",
